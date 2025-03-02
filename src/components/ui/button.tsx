@@ -12,7 +12,7 @@ const buttonVariants = cva(
         default: 'bg-accent-purple ',
         secondary: 'bg-background-tertiary',
         ghost: 'border border-border-primary',
-        link: 'text-accent-purple underline-offset-4 hover:underline'
+        link: 'text-accent-purple underline-offset-4 !p-0 hover:underline'
       },
       size: {
         default: 'p-3',
