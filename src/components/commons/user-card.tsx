@@ -33,7 +33,7 @@ export function UserCard() {
           &quot;Eu faço produtos para a Internet&quot;
         </p>
 
-        <hr className="border-divider-primary mx-auto mt-3 w-[95%] border" />
+        <hr className="mx-auto mt-3 w-[95%] border border-divider-primary" />
       </div>
       <div className="flex w-full flex-col gap-2">
         <span className="text-xs font-medium uppercase">Links</span>
@@ -49,7 +49,7 @@ export function UserCard() {
           ))}
         </div>
 
-        <hr className="border-divider-primary mx-auto my-3 w-[95%] border" />
+        <hr className="mx-auto my-3 w-[95%] border border-divider-primary" />
 
         <div className="flex h-[110px] w-full flex-col gap-3">
           <div className="flex w-full flex-col items-center gap-3">
