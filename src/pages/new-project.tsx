@@ -1,7 +1,6 @@
+import { CreateLinkForm } from '@/components/landing-page/create-link-form'
 import { Header } from '@/components/landing-page/header'
-import { Button } from '@/components/ui/button'
 import { Icon } from '@/components/ui/icon'
-import { Input } from '@/components/ui/input'
 
 export function NewProject() {
   return (
@@ -12,14 +11,7 @@ export function NewProject() {
           <h1 className="text-4xl font-bold text-white">Escolha seu link</h1>
           <Icon name="rocket" className="size-10" />
         </div>
-        <form action="" className="flex w-full items-center gap-2">
-          <span>projectinbio.com/</span>
-          <Input />
-          <Button className="w-[126px]">Criar</Button>
-        </form>
-        <div>
-          <span className="text-accent-pink">Erro de exemplo</span>
-        </div>
+        <CreateLinkForm />
       </div>
     </div>
   )

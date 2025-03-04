@@ -1,8 +1,8 @@
-import { ProjectCard } from './commons/project-card'
-import { TotalVisits } from './commons/total-visits'
-import { UserCard } from './commons/user-card'
-import { Button } from './ui/button'
-import { Input } from './ui/input'
+import { ProjectCard } from '../commons/project-card'
+import { TotalVisits } from '../commons/total-visits'
+import { UserCard } from '../commons/user-card'
+import { Button } from '../ui/button'
+import { Input } from '../ui/input'
 
 export function Hero() {
   return (

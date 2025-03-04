@@ -1,4 +1,4 @@
-import { Hero } from '@/components/hero'
+import { Hero } from '@/components/landing-page/hero'
 import { FAQ } from '@/components/landing-page/faq'
 import { Header } from '@/components/landing-page/header'
 import { Pricing } from '@/components/landing-page/pricing'

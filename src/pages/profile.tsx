@@ -1,19 +1,24 @@
 import Link from 'next/link'
 
+import { ProjectCard } from '@/components/commons/project-card'
+import { TotalVisits } from '@/components/commons/total-visits'
+import { UserCard } from '@/components/commons/user-card'
+import { CreateProjectFormDialog } from '@/components/create-project-form-dialog'
+import { Button } from '@/components/ui/button'
+import { ScrollArea, ScrollBar } from '@/components/ui/scroll-area'
 import { Route } from '@/utils/routes'
-
-import { ProjectCard } from '../commons/project-card'
-import { TotalVisits } from '../commons/total-visits'
-import { UserCard } from '../commons/user-card'
-import { Button } from '../ui/button'
-import { Icon } from '../ui/icon'
-import { ScrollArea, ScrollBar } from '../ui/scroll-area'
 
 type ProfileProps = {
   profileId: string
+  isOwner: boolean
+  data: {
+    userId: string
+    totalVisits: number
+    createdAt: number
+  }
 }
 
-export function Profile({ profileId }: ProfileProps) {
+export function Profile({ profileId, isOwner }: ProfileProps) {
   return (
     <div className="relative flex h-screen overflow-hidden p-20">
       <div className="fixed left-0 top-0 flex w-full items-center justify-center gap-1 bg-background-tertiary py-2">
@@ -63,10 +68,8 @@ export function Profile({ profileId }: ProfileProps) {
             name="Project in Bio"
             img="/project1.jpg"
           />
-          <button className="flex h-[132px] w-[340px] items-center justify-center gap-2 rounded-[20px] border-border-secondary bg-background-secondary hover:border hover:border-dashed">
-            <Icon name="plus" className="size-10 text-accent-green" />
-            <span>Novo projeto</span>
-          </button>
+
+          {isOwner && <CreateProjectFormDialog profileId={profileId} />}
         </div>
 
         <ScrollBar className="rounded-md bg-background-tertiary" />
