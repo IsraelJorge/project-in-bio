@@ -1,5 +1,5 @@
-import { Header } from '../landing-page/header'
-import { Button } from '../ui/button'
+import { Header } from '@/components/landing-page/header'
+import { Button } from '@/components/ui/button'
 
 export function Upgrade() {
   return (

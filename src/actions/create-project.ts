@@ -36,11 +36,12 @@ export const createProject = async (formData: FormData) => {
 
   try {
     await db
-      .collection('projects')
+      .collection('profiles')
       .doc(data.profileId)
       .collection('projects')
       .doc(generatedId)
       .set({
+        id: generatedId,
         userId: session.user.id,
         title: data.title,
         url: data.url,
@@ -50,8 +51,7 @@ export const createProject = async (formData: FormData) => {
       })
 
     return true
-  } catch (error) {
-    console.log(error)
+  } catch {
     return false
   }
 }

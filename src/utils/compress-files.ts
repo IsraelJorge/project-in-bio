@@ -6,8 +6,7 @@ export const compressFiles = async (files: File[]) => {
     const compressPromises = files.map(async file => await compressImage(file))
 
     return (await Promise.all(compressPromises)).filter(Boolean) as File[]
-  } catch (error) {
-    console.log(error)
+  } catch {
     return null
   }
 }
@@ -25,7 +24,6 @@ export const compressImage = async (file: File) => {
         resolve(compressedFile)
       })
       .catch(error => {
-        console.log(error)
         resolve(null)
       })
   })
