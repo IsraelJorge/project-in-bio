@@ -43,7 +43,8 @@ const eslintConfig = [
           'newlines-between': 'always'
         }
       ],
-      'import/no-unresolved': 'off'
+      'import/no-unresolved': 'off',
+      'import/named': 'off'
     }
   })
 ]

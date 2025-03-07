@@ -9,19 +9,23 @@ import { ProjectData } from '@/server/get-profile-projects'
 import { formatUrl } from '@/utils/format-url'
 
 export type ProjectCardProps = {
-  project: ProjectData
+  project?: ProjectData
   isOwner?: boolean
 }
 
 export function ProjectCard({ project, isOwner = false }: ProjectCardProps) {
-  const { description, title, url, imagePath, totalVisits = 0 } = project
+  const {
+    description = 'Integração de GitHub e GitLab com o Discord',
+    title = 'CodeLink',
+    url = '',
+    imagePath = '/project1.jpg',
+    totalVisits = 0
+  } = project ?? {}
 
   const params = useParams<{ profileId: string }>()
 
   const handleClick = async () => {
-    if (!params?.profileId) return
-    if (isOwner) return
-
+    if (!params?.profileId || !project?.id || isOwner) return
     await increaseProjectsVisits({
       profileId: params.profileId,
       projectId: project.id

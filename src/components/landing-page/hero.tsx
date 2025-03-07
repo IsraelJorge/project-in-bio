@@ -1,3 +1,5 @@
+import { ProfileData } from '@/server/get-profile-data'
+
 import { ProjectCard } from '../commons/project-card'
 import { TotalVisits } from '../commons/total-visits'
 import { UserCard } from '../commons/user-card/user-card'
@@ -25,24 +27,35 @@ export function Hero() {
 
       <div className="flex w-full items-center justify-center bg-[radial-gradient(circle_at_50%_50%,#4B2DBB,transparent_55%)]">
         <div className="relative">
-          <UserCard />
+          <UserCard
+            profileData={
+              {
+                name: 'Israel Jorge',
+                description: 'Desenvolvedor Fullstack 🚀',
+                customLinks: [
+                  {
+                    title: 'Site',
+                    url: 'https://'
+                  }
+                ],
+                socialMedias: {
+                  github: 'IsraelJorge',
+                  linkedin: 'in/israel-jorge-54b5aa174/',
+                  twitter: '#',
+                  instagram: 'israeljorge_'
+                }
+              } as ProfileData
+            }
+          />
           <div className="absolute -bottom-[10%] -right-[45%]">
-            <TotalVisits />
+            <TotalVisits totalVisits={21242} />
           </div>
 
           <div className="absolute -left-[45%] top-[30%] -z-10">
-            <ProjectCard
-              name="Projeto 1"
-              description="Descrição do projeto 1"
-              img="/project1.jpg"
-            />
+            <ProjectCard isOwner />
           </div>
           <div className="absolute -left-[55%] -top-[5%] -z-10">
-            <ProjectCard
-              name="Projeto 2"
-              description="Descrição do projeto 2"
-              img="/project2.jpg"
-            />
+            <ProjectCard isOwner />
           </div>
         </div>
       </div>
