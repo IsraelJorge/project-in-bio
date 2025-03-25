@@ -3,6 +3,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import { ENV } from '@/env'
 import { auth } from '@/lib/auth'
 import { db } from '@/lib/firebase'
+import { trackServerEvent } from '@/lib/mixpanel'
 import { stripe } from '@/lib/stripe'
 
 export async function POST(req: NextRequest) {
@@ -62,6 +63,12 @@ export async function POST(req: NextRequest) {
     cancel_url: `${req.headers.get('origin')}/${metadata.profileId}/upgrade`,
     client_reference_id: userId,
     metadata
+  })
+
+  trackServerEvent('checkout-created', {
+    userId,
+    price,
+    isSubscription
   })
 
   return NextResponse.json({
