@@ -41,5 +41,27 @@ export function useStripe() {
     }
   }
 
-  return { createStripeCheckout }
+  async function handleCreateStripePortal() {
+    try {
+      const response = await fetch('/api/stripe/create-portal', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+
+      if (!response.ok) {
+        console.error('Failed to create portal')
+        return
+      }
+
+      const data = await response.json()
+
+      window.location.href = data.url
+    } catch (error) {
+      console.error(error)
+    }
+  }
+
+  return { createStripeCheckout, handleCreateStripePortal }
 }

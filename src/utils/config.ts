@@ -1,1 +1,3 @@
 export const TRIAL_DAYS = 3
+export const DAYS_IN_MILLISECONDS = 1000 * 60 * 60 * 24
+export const TRIAL_DURATION = TRIAL_DAYS * DAYS_IN_MILLISECONDS

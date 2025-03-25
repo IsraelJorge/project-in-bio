@@ -1,6 +1,6 @@
 'use client'
 
-import { useRouter } from 'next/navigation'
+import { useRouter, useSearchParams } from 'next/navigation'
 import { useState } from 'react'
 
 import { createLink } from '@/actions/create-link'
@@ -11,7 +11,10 @@ import { Button } from '../ui/button'
 import { Input } from '../ui/input'
 
 export function CreateLinkForm() {
-  const [link, setLink] = useState('')
+  const searchParams = useSearchParams()
+  const defaultLink = searchParams?.get('link') || ''
+
+  const [link, setLink] = useState(sanitizeLink(defaultLink))
   const [error, setError] = useState('')
 
   const router = useRouter()

@@ -3,8 +3,7 @@ import { ProfileData } from '@/server/get-profile-data'
 import { ProjectCard } from '../commons/project-card'
 import { TotalVisits } from '../commons/total-visits'
 import { UserCard } from '../commons/user-card/user-card'
-import { Button } from '../ui/button'
-import { Input } from '../ui/input'
+import { CreateNow } from '../create-now'
 
 export function Hero() {
   return (
@@ -18,11 +17,7 @@ export function Hero() {
           <br />
           Acompanhe o engajamento com Analytics de cliques
         </h2>
-        <div className="mt-[10vh] flex w-full items-center gap-2">
-          <span className="text-xl text-white">projectinbio.com</span>
-          <Input placeholder="Seu link" />
-          <Button>Criar agora</Button>
-        </div>
+        <CreateNow />
       </div>
 
       <div className="flex w-full items-center justify-center bg-[radial-gradient(circle_at_50%_50%,#4B2DBB,transparent_55%)]">

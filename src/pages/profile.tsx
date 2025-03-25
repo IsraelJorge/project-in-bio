@@ -16,22 +16,27 @@ type ProfileProps = {
   isOwner: boolean
   projects: ProjectData[]
   profileData: ProfileData
+  isUnsubscribedTrialUser: boolean
 }
 
 export function Profile({
   profileId,
   isOwner,
   profileData,
-  projects
+  projects,
+  isUnsubscribedTrialUser
 }: ProfileProps) {
   return (
     <div className="relative flex h-screen overflow-hidden p-20">
-      <div className="fixed left-0 top-0 flex w-full items-center justify-center gap-1 bg-background-tertiary py-2">
-        <span>Você está usando a versão trial.</span>
-        <Button variant="link" className="font-bold text-accent-green">
-          <Link href={Route.upgrade(profileId)}>Faça o upgrade agora!</Link>
-        </Button>
-      </div>
+      {isUnsubscribedTrialUser && (
+        <div className="fixed left-0 top-0 flex w-full items-center justify-center gap-1 bg-background-tertiary py-2">
+          <span>Você está usando a versão trial.</span>
+          <Button variant="link" className="font-bold text-accent-green">
+            <Link href={Route.upgrade(profileId)}>Faça o upgrade agora!</Link>
+          </Button>
+        </div>
+      )}
+
       <div className="flex h-min w-1/2 justify-center">
         <UserCard profileData={profileData} isOwner={isOwner} />
       </div>
