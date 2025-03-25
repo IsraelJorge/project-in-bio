@@ -12,7 +12,8 @@ const ServerEnvSchema = z.object({
   STRIPE_SUBSCRIPTION_ID: z.string(),
   STRIPE_WEBHOOK_SECRET: z.string(),
   NEXT_PUBLIC_STRIPE_PUBLIC_KEY: z.string(),
-  STRIPE_SECRET_KEY: z.string()
+  STRIPE_SECRET_KEY: z.string(),
+  GA_ID: z.string()
 })
 
 type EnvType = z.infer<typeof ServerEnvSchema>

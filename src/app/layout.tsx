@@ -1,7 +1,9 @@
+import { GoogleAnalytics } from '@next/third-parties/google'
 import type { Metadata } from 'next'
 import { Red_Hat_Display } from 'next/font/google'
 
 import '@/styles/globals.css'
+import { ENV } from '@/env'
 
 const redHatDisplay = Red_Hat_Display({
   subsets: ['latin'],
@@ -28,6 +30,7 @@ export default function RootLayout({
       >
         {children}
       </body>
+      <GoogleAnalytics gaId={ENV.GA_ID} />
     </html>
   )
 }
