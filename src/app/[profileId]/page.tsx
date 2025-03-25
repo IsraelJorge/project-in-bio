@@ -1,3 +1,4 @@
+import { Metadata } from 'next'
 import { notFound, redirect } from 'next/navigation'
 
 import { increaseProfileVisits } from '@/actions/increase-profile-visits'
@@ -6,6 +7,11 @@ import { Profile } from '@/pages/profile'
 import { getProfileData } from '@/server/get-profile-data'
 import { getProfileProjects } from '@/server/get-profile-projects'
 import { Route } from '@/utils/routes'
+
+export const metadata: Metadata = {
+  title: 'ProjectInBio - Perfil',
+  description: 'ProjectInBio - A plataforma de gestão de projetos em biologia.'
+}
 
 export type PageProps = {
   params: Promise<{
